@@ -1,0 +1,25 @@
+#Save this file in your HOME directory as .gitconfig
+#Few easy shortucts to git commands
+
+[core]
+    whitespace = nowarn
+    pager = less
+[user]
+    name = raycoding
+    email = rayshuddhashil@gmail.com
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+[alias]
+    spull = !git checkout master && git-svn fetch && git-svn rebase
+    spush = !git checkout master && git-svn dcommit
+    send = !git spull && git spush
+    co = checkout
+    ci = commit
+    ca = commit -a
+    br = branch
+    st = status
+    lg = log -p
+    df = diff
+    dfs = diff --cached
