@@ -1,0 +1,10 @@
+<VirtualHost *>
+    #Change these lines to suit your project path
+    RailsEnv development
+    ServerName dev.socialbeam.com
+    DocumentRoot /home/ghostviper/Work/code/SocialbeamProject/socialbeam/public
+    <Directory /home/ghostviper/Work/code/SocialbeamProject/socialbeam/public>
+        Allow from all
+        Options -MultiViews
+    </Directory>
+</VirtualHost>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Post:</b>
+  <%= @scribble.post %>
+</p>
+
+<p>
+  <b>Posted by:</b>
+  <%= @scribble.posted_by %>
+</p>
+
+<p>
+  <b>Posted by uid:</b>
+  <%= @scribble.posted_by_uid %>
+</p>
+
+
+<%= link_to 'Edit', edit_scribble_path(@scribble) %> |
+<%= link_to 'Back', scribbles_path %>

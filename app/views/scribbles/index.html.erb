@@ -1,0 +1,27 @@
+<h1>Listing scribbles</h1>
+
+<table>
+  <tr>
+    <th>Post</th>
+    <th>Posted by</th>
+    <th>Posted by uid</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @scribbles.each do |scribble| %>
+  <tr>
+    <td><%= scribble.post %></td>
+    <td><%= scribble.posted_by %></td>
+    <td><%= scribble.posted_by_uid %></td>
+    <td><%= link_to 'Show', scribble %></td>
+    <td><%= link_to 'Edit', edit_scribble_path(scribble) %></td>
+    <td><%= link_to 'Destroy', scribble, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Scribble', new_scribble_path %>
