@@ -1,6 +1,3 @@
-#Save this file in your HOME directory as .gitconfig
-#Few easy shortucts to git commands
-
 [core]
     whitespace = nowarn
     pager = less
@@ -11,6 +8,21 @@
     diff = auto
     status = auto
     branch = auto
+[color "branch"]
+  current = blue
+  local = yellow 
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+  modified = blue
+  deleted = red
 [alias]
     spull = !git checkout master && git-svn fetch && git-svn rebase
     spush = !git checkout master && git-svn dcommit
@@ -20,6 +32,8 @@
     ca = commit -a
     br = branch
     st = status
-    lg = log -p
+    lg = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+    lgl = log --stat --abbrev-commit
     df = diff
+    dfc = diff --color-words
     dfs = diff --cached
