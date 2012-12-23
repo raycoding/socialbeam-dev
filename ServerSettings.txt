@@ -1,0 +1,31 @@
+1.
+#Passenger Rails Configs
+sudo vim /etc/apache2/apache2.conf
+#Add these lines with RVM_PATHS in your System
+LoadModule passenger_module /home/YOUR_USERNAME/.rvm/gems/ree-1.8.7-2012.02@rails3/gems/passenger-3.0.18/ext/apache2/mod_passenger.so
+PassengerRoot /home/YOUR_USERNAME/.rvm/gems/ree-1.8.7-2012.02@rails3/gems/passenger-3.0.18
+PassengerRuby /home/YOUR_USERNAME/.rvm/wrappers/ree-1.8.7-2012.02@rails3/ruby 
+
+2.
+#Enable rewrites for sites-enabled in Apache2.
+sudo a2enmod rewrite
+
+3.
+#SOCIALBEAM named 'dev.socialbeam.com'
+sudo vim /etc/apache2/sites-available/dev.socialbeam.com
+<VirtualHost *:80>
+#Change these lines(replace PATH_TO_PROJECT) with your path in system
+RailsEnv development
+ServerName dev.socialbeam.com
+DocumentRoot /PATH_T0_PROJECT/socialbeam/public
+</VirtualHost>
+
+4.
+sudo vim /etc/hosts and 
+#Add this line to the file.
+127.0.0.1   dev.socialbeam.com
+
+5.
+Enable "dev.socialbeam.com" and restart Apache:
+sudo a2ensite dev.socialbeam.com
+sudo /etc/init.d/apache2 restart
