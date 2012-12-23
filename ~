@@ -1,9 +1,10 @@
+#Contents of /etc/apache2/sites-available/dev.socialbeam.com for APACHE2 Settings for SocialBeam
 <VirtualHost *>
     #Change these lines to suit your project path
     RailsEnv development
     ServerName dev.socialbeam.com
-    DocumentRoot /home/ghostviper/Work/code/SocialbeamProject/socialbeam/public
-    <Directory /home/ghostviper/Work/code/SocialbeamProject/socialbeam/public>
+    DocumentRoot /path_to_project/socialbeam/public
+    <Directory /path_to_project/socialbeam/public>
         Allow from all
         Options -MultiViews
     </Directory>
