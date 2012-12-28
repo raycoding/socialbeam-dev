@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation
   attr_accessor :password
   before_save :encrypt_password
+  before_save :create_unique_profile_id
 
   validates_confirmation_of :password , :message => "Passwords donot match."
   validates_presence_of :password, :message => "Please Enter a Password"
@@ -19,6 +20,13 @@ class User < ActiveRecord::Base
       nil
     end
   end
+
+  def create_unique_profile_id
+    begin
+      self.profile_id=SecureRandom.base64(8)
+    end while self.class.exists?(:profile_id =>profile_id)
+  end
+
 
   def encrypt_password
     if password.present?
