@@ -1,4 +1,4 @@
-== Welcome to Open Source Social Network Development Project in Rails - SOCIALBEAM
+== Social Network Development Project in Rails - SOCIALBEAM
 
 As you might already know Rails is a web-application framework that includes everything needed to create
 database-backed web applications according to the Model-View-Control pattern.So I chose RAILS for development of this project
