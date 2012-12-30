@@ -42,117 +42,35 @@ also on <a href="http://www.raycoding.net">www.raycoding.net</a></p>
 
 <p>You can reach Shuddhashil Ray <a href="https://github.com/raycoding" class="user-mention">@raycoding</a> for any issue related to Socialbeam.</p>
 
-<h3>Getting Started on Socialbeam</h3>
-
-<p>As you might already know Rails is a web-application framework that includes everything needed to create
+<p>Rails is a web-application framework that includes everything needed to create
 database-backed web applications according to the Model-View-Control pattern.So I chose RAILS for development of this project
 for the ease of creating a really good scalable WEB Application like Social Network. I am myself a beginner in Rails and you can
-catch me with details tutorials of SOCIALBEAM on my website <a href="http://www.raycoding.net">www.raycoding.net</a> 
-You can follow the tutorials alongside the Source Code ==&gt; <a href="http://raycoding.net/category/ruby-on-rails/socialbeam-development-tutorial/">http://raycoding.net/category/ruby-on-rails/socialbeam-development-tutorial/</a>
-If you need guide starting up with RAILS you can always check </p>
+catch me with detailed tutorials of SOCIALBEAM on my website <a href="http://www.raycoding.net">www.raycoding.net</a></p>
 
-<ul>
-<li>The Getting Started Guide: <a href="http://guides.rubyonrails.org/getting_started.html">http://guides.rubyonrails.org/getting_started.html</a>
-</li>
-<li>Ruby on Rails Tutorial Book: <a href="http://www.railstutorial.org/">http://www.railstutorial.org/</a>
-</li>
-</ul><p>The project - SOCIALBEAM</p>
 
-<p>Currently running on RVM with Ruby Enterprize Edition REE 1.8.7 and Rails 3.2.8,MySQL, Apache2 - Passenger Rails to follow the project. I would suggest you to get your system setup with the following configurations. You can find many Official Guide to get your System set up with these requirement.Also you can find setup tutorials on my website <a href="http://www.raycoding.net">www.raycoding.net</a> for SocialBeam.
-The Project is at it's initial development stage and I am sole developer, I would love anyone to contribute to Socialbeam.
-With time I will try and prepare a documentation too for the same. Socialbeam like any other Social Network like Facebook , Twitter would first aim to implement the basic features of a Social Network with User(Beamers) connected to each other with social shares and streams. </p>
+<p>==System Config - SOCIALBEAM</p>
+<p>I am running on RVM with Ruby Enterprize Edition REE 1.8.7 and Rails 3.2.8,MySQL, Apache2 - Passenger Rails
+to follow the project. I would suggest you to get your system setup with the following configurations. You can find many Official Guide to get your System set up with these requirement.</p>
 
-<p>A little about Development Environment of SocialBeam on Rails</p>
+<p>== Getting Started</p>
+<p>The Project is at it's initial development stage.
+With time I will try and prepare a documentation and wiki pages too for the same. 
+Socialbeam like any other Social Network like Facebook ,Twitter would first aim to 
+implement the basic features of a Social Network with User(Beamers) connected to each 
+other with social shares and streams.</p>
 
-<p>== Console</p>
-
-<p>The console is a Ruby shell, which allows you to interact with your
-application's domain model. Here you'll have all parts of the application
-configured, just like it is when the application is running. You can inspect
-domain models, change values, and save to the database. Starting the script
-without arguments will launch it in the development environment.</p>
-
-<p>To start the console, run 'rails console' from the Socialbeam's application
-directory.</p>
-
-<p>It often happens while your console is loaded you make changes to your MVC,so to reload your controllers and models after launching the console run
-reload!</p>
-
-<p>== dbconsole - NOTE I WILL ADD THE schema.rb and seed.rb for you to get the db in your local system too with all data.</p>
-
-<p>You can go to the command line of your database directly through rails
-dbconsole. You would be connected to the database with the credentials
-defined in - Socialbeam's database.yml. Starting the script without arguments will connect you
-to the development database.</p>
-
-<p>== Directory Architechture of SocialBeam App:
-app
-  Holds all the code that's specific to this particular application.</p>
-
-<p>app/assets
-  Contains subdirectories for images, stylesheets, and JavaScript files.</p>
-
-<p>app/controllers
-  Holds controllers that should be named like weblogs_controller.rb for
-  automated URL mapping. All controllers should descend from
-  ApplicationController which itself descends from ActionController::Base.</p>
-
-<p>app/models
-  Holds models that should be named like post.rb. Models descend from
-  ActiveRecord::Base by default.</p>
-
-<p>app/views
-  Holds the template files for the view that should be named like
-  weblogs/index.html.erb for the WeblogsController#index action. All views use
-  eRuby syntax by default.</p>
-
-<p>app/views/layouts
-  Holds the template files for layouts to be used with views. This models the
-  common header/footer method of wrapping views. In your views, define a layout
-  using the <tt>layout :default</tt> and create a file named default.html.erb.
-  Inside default.html.erb, call &lt;% yield %&gt; to render the view using this
-  layout.</p>
-
-<p>app/helpers
-  Holds view helpers that should be named like weblogs_helper.rb. These are
-  generated for you automatically when using generators for controllers.
-  Helpers can be used to wrap functionality for your views into methods.</p>
-
-<p>config
-  Configuration files for the Rails environment, the routing map, the database,
-  and other dependencies.</p>
-
-<p>db
-  Contains the database schema in schema.rb. db/migrate contains all the
-  sequence of Migrations for your schema.</p>
-
-<p>doc
-  This directory is where your application documentation will be stored when
-  generated using <tt>rake doc:app</tt></p>
-
-<p>lib
-  Application specific libraries. Basically, any kind of custom code that
-  doesn't belong under controllers, models, or helpers. This directory is in
-  the load path.</p>
-
-<p>public
-  The directory available for the web server. Also contains the dispatchers and the
-  default HTML files. This should be set as the DOCUMENT_ROOT of your web
-  server.</p>
-
-<p>script
-  Helper scripts for automation and generation.</p>
-
-<p>test
-  Unit and functional tests along with fixtures. When using the rails generate
-  command, template test files will be generated for you and placed in this
-  directory.</p>
-
-<p>vendor
-  External libraries that the application depends on. Also includes the plugins
-  subdirectory. If the app has frozen rails, those gems also go here, under
-  vendor/rails/. This directory is in the load path.</p>
-
+<p>== Step By Step Development Tutorials</p>
+<p>
+1. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 1 – SYSTEM SETUP [http://raycoding.net/2012/10/17/creating-social-network-on-ruby-on-rails-day-1/]</br>
+2. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 2 – PROJECT SETUP [http://raycoding.net/2012/10/26/creating-social-network-on-ruby-on-rails-day-2/]</br>
+3. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 3 – BASE NAVIGATIONS & TWITTER BOOTSTRAP STYLES [http://raycoding.net/2012/10/26/creating-social-network-on-ruby-on-rails-day-3-adding-navigations-and-stylesheets/]</br>
+4. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 4 – SOCIALBEAM’S USER MVC [http://raycoding.net/2012/10/29/creating-social-network-on-ruby-on-rails-day-4-socialbeams-user-mvc/]</br>
+5. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 5 – NAVIGATIONS,TWITTER BOOTSTRAP STYLES,JQUERY PART 2 [http://raycoding.net/2012/10/30/creating-social-network-on-ruby-on-rails-day-5-navigationstwitter-bootstrap-stylesjquery-part-2/]</br>
+6. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 6 – DYNAMIC FACEBOOK LIKE WALL WITH RAILS-AJAX-JQUERY [http://raycoding.net/2012/11/01/creating-social-network-on-ruby-on-rails-day-6-dynamic-facebook-like-wall-with-rails-ajax-jquery/]</br>
+7. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 7 – SETTING UP RAILS + APACHE WITH PASSENGER [http://raycoding.net/2012/12/22/creating-social-network-on-ruby-on-rails-day-7-setting-up-rails-apache-with-passenger/]</br>
+8. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 8 – SOURCE CONTROL ON GIT [http://raycoding.net/2012/12/22/creating-social-network-on-ruby-on-rails-day-8-source-control-on-git/]</br>
+9. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 9 – CREATING USER PROFILE PART 1 [http://raycoding.net/2012/12/28/creating-social-network-on-ruby-on-rails-day-9-creating-user-profile-part-1/]</br>
+</p>
 <p>Follow the tutorial on <a href="http://www.raycoding.net">www.raycoding.net</a> for more details.</p>
       </section>
     </div>
