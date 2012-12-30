@@ -5,23 +5,37 @@ database-backed web applications according to the Model-View-Control pattern.So 
 for the ease of creating a really good scalable WEB Application like Social Network. I am myself a beginner in Rails and you can
 catch me with details tutorials of SOCIALBEAM on my website www.raycoding.net 
 You can follow the tutorials alongside the Source Code ==> http://raycoding.net/category/ruby-on-rails/socialbeam-development-tutorial/
+
 If you need guide starting up with RAILS you can always check 
 * The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
 * Ruby on Rails Tutorial Book: http://www.railstutorial.org/
 
 
-The project - SOCIALBEAM
-
+== System Config - SOCIALBEAM
 Currently I am running on RVM with Ruby Enterprize Edition REE 1.8.7 and Rails 3.2.8,MySQL, Apache2 - Passenger Rails
 to follow the project. I would suggest you to get your system setup with the following configurations. You can find many Official Guide to get your System set up with these requirement.Also you can find setup tutorial on my website for SocialBeam
 
 
 == Getting Started
-The Project is at it's initial development stage and I am sole developer, I would love anyone to contribute to Socialbeam.
-With time I will try and prepare a documentation too for the same. Socialbeam like any other Social Network like Facebook , Twitter would first aim to implement the basic features of a Social Network with User(Beamers) connected to each other with social shares and streams. 
+The Project is at it's initial development stage.
+With time I will try and prepare a documentation and wiki pages too for the same. 
+Socialbeam like any other Social Network like Facebook ,Twitter would first aim to 
+implement the basic features of a Social Network with User(Beamers) connected to each 
+other with social shares and streams. 
+
+== Step By Step Development Tutorials
+1. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 1 – SYSTEM SETUP [http://raycoding.net/2012/10/17/creating-social-network-on-ruby-on-rails-day-1/]
+2. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 2 – PROJECT SETUP [http://raycoding.net/2012/10/26/creating-social-network-on-ruby-on-rails-day-2/]
+3. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 3 – BASE NAVIGATIONS & TWITTER BOOTSTRAP STYLES [http://raycoding.net/2012/10/26/creating-social-network-on-ruby-on-rails-day-3-adding-navigations-and-stylesheets/]
+4. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 4 – SOCIALBEAM’S USER MVC [http://raycoding.net/2012/10/29/creating-social-network-on-ruby-on-rails-day-4-socialbeams-user-mvc/]
+5. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 5 – NAVIGATIONS,TWITTER BOOTSTRAP STYLES,JQUERY PART 2 [http://raycoding.net/2012/10/30/creating-social-network-on-ruby-on-rails-day-5-navigationstwitter-bootstrap-stylesjquery-part-2/]
+6. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 6 – DYNAMIC FACEBOOK LIKE WALL WITH RAILS-AJAX-JQUERY [http://raycoding.net/2012/11/01/creating-social-network-on-ruby-on-rails-day-6-dynamic-facebook-like-wall-with-rails-ajax-jquery/]
+7. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 7 – SETTING UP RAILS + APACHE WITH PASSENGER [http://raycoding.net/2012/12/22/creating-social-network-on-ruby-on-rails-day-7-setting-up-rails-apache-with-passenger/]
+8. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 8 – SOURCE CONTROL ON GIT [http://raycoding.net/2012/12/22/creating-social-network-on-ruby-on-rails-day-8-source-control-on-git/]
+9. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 9 – CREATING USER PROFILE PART 1 [http://raycoding.net/2012/12/28/creating-social-network-on-ruby-on-rails-day-9-creating-user-profile-part-1/]
 
 
-A little about Development Environment on Rails
+A Development Environment on Rails
 
 == Console
 
@@ -30,16 +44,11 @@ application's domain model. Here you'll have all parts of the application
 configured, just like it is when the application is running. You can inspect
 domain models, change values, and save to the database. Starting the script
 without arguments will launch it in the development environment.
-
 To start the console, run 'rails console' from the Socialbeam's application
-directory.
-
-
-It often happens while your console is loaded you make changes to your MVC,so to reload your controllers and models after launching the console run
+directory.It often happens while your console is loaded you make changes to your MVC,so to reload your controllers and models after launching the console run
 reload!
 
-
-== dbconsole - NOTE I WILL ADD THE schema.rb and seed.rb for you to get the db in your local system too with all data.
+== dbconsole
 
 You can go to the command line of your database directly through rails
 dbconsole. You would be connected to the database with the credentials
