@@ -3,8 +3,7 @@
 As you might already know Rails is a web-application framework that includes everything needed to create
 database-backed web applications according to the Model-View-Control pattern.So I chose RAILS for development of this project
 for the ease of creating a really good scalable WEB Application like Social Network. I am myself a beginner in Rails and you can
-catch me with details tutorials of SOCIALBEAM on my website www.raycoding.net 
-You can follow the tutorials alongside the Source Code ==> http://raycoding.net/category/ruby-on-rails/socialbeam-development-tutorial/
+catch me with detailed tutorials of SOCIALBEAM on my website www.raycoding.net You can follow the tutorials alongside the Source Code ==> http://raycoding.net/category/ruby-on-rails/socialbeam-development-tutorial/
 
 If you need guide starting up with RAILS you can always check 
 * The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
@@ -12,8 +11,8 @@ If you need guide starting up with RAILS you can always check
 
 
 == System Config - SOCIALBEAM
-Currently I am running on RVM with Ruby Enterprize Edition REE 1.8.7 and Rails 3.2.8,MySQL, Apache2 - Passenger Rails
-to follow the project. I would suggest you to get your system setup with the following configurations. You can find many Official Guide to get your System set up with these requirement.Also you can find setup tutorial on my website for SocialBeam
+I am running on RVM with Ruby Enterprize Edition REE 1.8.7 and Rails 3.2.8,MySQL, Apache2 - Passenger Rails
+to follow the project. I would suggest you to get your system setup with the following configurations. You can find many Official Guide to get your System set up with these requirement.
 
 
 == Getting Started
@@ -35,7 +34,7 @@ other with social shares and streams.
 9. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 9 – CREATING USER PROFILE PART 1 [http://raycoding.net/2012/12/28/creating-social-network-on-ruby-on-rails-day-9-creating-user-profile-part-1/]
 
 
-A Development Environment on Rails
+Development Environment on Rails
 
 == Console
 
