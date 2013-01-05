@@ -2,8 +2,8 @@
     whitespace = nowarn
     pager = less
 [user]
-    name = raycoding
-    email = rayshuddhashil@gmail.com
+    name = NAME
+    email = EMAIL
 [color]
     diff = auto
     status = auto
