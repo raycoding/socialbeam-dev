@@ -1,9 +1,9 @@
-== Social Network Development Project in Rails - SOCIALBEAM
+# Social Network Development Project in Rails - SOCIALBEAM
 
 Socialbeam is a Open Source Development Project for building a Social Network. In its early stages of development phase Socialbeam aims to implement
 the primary set of features that a Social Network consists of. Written in simle lucid design styles and explained briefly the structure of the platform Socialbeam hopefully will implement most if not all social network features that we see around presently. As the 'Social' evolves with time so will this project Socialbeam.
 
-=== Features implemented and will be implemented
+## Features implemented and will be implemented
 1. User Base (Beamers)
 2. Messaging System
 3. User Network and Aspects
@@ -14,32 +14,20 @@ the primary set of features that a Social Network consists of. Written in simle 
 8. Digital Albums
 (this stack will increase in size definitely with time as Socialbeam percieves more features.
  
-==== You can also follow the Socialbeam Development Tutorials(http://raycoding.net/category/ruby-on-rails/socialbeam-development-tutorial/)**
+### You can also follow the [Socialbeam Development Tutorials](http://raycoding.net/category/ruby-on-rails/socialbeam-development-tutorial/)
 
 If you need guide starting up with Ruby on Rails 
-* http://guides.rubyonrails.org/getting_started.html
-* Ruby on Rails Tutorial](http://www.railstutorial.org/
+* [Getting Started](http://guides.rubyonrails.org/getting_started.html)
+* [Ruby on Rails Tutorial](http://www.railstutorial.org/)
 
-==== Configuration
+### Configuration
 Socialbeam is running on RVM with Ruby Enterprize Edition REE 1.8.7 and Rails 3.2.8,MySQL, Apache2 - Passenger Rails
 I would suggest you to get your system setup from the instructions of system setup below.
 
-=== Guide to SetUp System and Run Socialbeam
-1. Make your project directory and clone the branch(master)
-2. Save the following code in a script file named setup_socialbeam.sh
-		function install_jdk
-		{
-		    cd /usr/lib/jvm
-			sudo wget http://bab-backup.s3.amazonaws.com/jdk-6u29-linux-i586.bin
-			sudo chmod +x jdk-6u29-linux-i586.bin
-		    sudo ./jdk-6u29-linux-i586.bin
-		  
-		    #  After the installation is done
-		    #  Put this in your /etc/bash.bashrc
-		    #  export JAVA_HOME=/usr/lib/jvm/jdk1.6.0_29
-		    # export JRE_HOME=/usr/lib/jvm/jdk1.6.0_29/jre
-		  
-		}
+## Guide to SetUp System and Run Socialbeam
+* Make your project directory and clone the branch(master)
+* Save the following code in a script file named **setup_socialbeam.sh**
+         	
 		  
 		function apt_get_stuff
 		{
@@ -55,6 +43,18 @@ I would suggest you to get your system setup from the instructions of system set
 		    install_jdk  
 		    #git and svn
 		    sudo aptitude install git-core subversion
+		}
+ 		function install_jdk
+		{
+		    cd /usr/lib/jvm
+			sudo wget http://bab-backup.s3.amazonaws.com/jdk-6u29-linux-i586.bin
+			sudo chmod +x jdk-6u29-linux-i586.bin
+		    sudo ./jdk-6u29-linux-i586.bin
+		    #  After the installation is done
+		    #  Put this in your /etc/bash.bashrc
+		    #  export JAVA_HOME=/usr/lib/jvm/jdk1.6.0_29
+		    # export JRE_HOME=/usr/lib/jvm/jdk1.6.0_29/jre
+		  
 		}
 		  
 		function install_rvm_ree
@@ -109,45 +109,47 @@ I would suggest you to get your system setup from the instructions of system set
 		  passenger_rails
 		}
    
-   (You can also get the Script from the codebase under directory setup/setup_socialbeam.sh)
-3. Open terminal and run `source setup_socialbeam.sh`
-4. run `setup_stuffs`
-5. On installing Passenger Rails from the above steps you will be asked to add three lines to apache2.conf file, please add those three lines for proper configuration of Passenger Rails with Apache2. The lines will be something like these.
-      **LoadModule passenger_module /home/username/.rvm/gems/ree-1.8.7-2012.02@rails3/gems/passenger-3.0.18/ext/apache2/mod_passenger.so**
-      **PassengerRoot /home/username/.rvm/gems/ree-1.8.7-2012.02@rails3/gems/passenger-3.0.18**
-      **PassengerRuby /home/username/.rvm/wrappers/ree-1.8.7-2012.02@rails3/ruby**
+   **(You can also get the Script from the codebase under directory setup/setup_socialbeam.sh)**
+* Open terminal and run `source setup_socialbeam.sh`
+* run `setup_stuffs`
+* On installing Passenger Rails from the above steps you will be asked to add three lines to apache2.conf file, 
+please add those three lines for proper configuration of Passenger Rails with Apache2. 
+The lines will be something like these.
+*      __LoadModule passenger_module /home/username/.rvm/gems/ree-1.8.7-2012.02@rails3/gems/passenger-3.0.18/ext/apache2/mod_passenger.so__
+*      __PassengerRoot /home/username/.rvm/gems/ree-1.8.7-2012.02@rails3/gems/passenger-3.0.18__
+*      __PassengerRuby /home/username/.rvm/wrappers/ree-1.8.7-2012.02@rails3/ruby__
       Copy the three lines generated on your system into your /etc/apache2/apache2.conf
-6. `sudo a2enmod rewrite`
-7. Add the below lines to a new sites-available file `sudo vim /etc/apache2/sites-available/dev.socialbeam.com`
-     	<VirtualHost *:80>
-	(Change these lines to suit your project path)
-	RailsEnv development
-	ServerName dev.socialbeam.com
-	DocumentRoot /home/user/Work/code/SocialbeamProject/socialbeam/public
-	</VirtualHost>
-8. Open `sudo vim /etc/hosts` and add **127.0.0.1   dev.socialbeam.com**
-9. `sudo a2ensite dev.socialbeam.com`
-10. `sudo service apache2 restart`
+* `sudo a2enmod rewrite`
+* Add the below lines to a new sites-available file `sudo vim /etc/apache2/sites-available/dev.socialbeam.com`
+     	`<VirtualHost *:80>`
+	`(Change these lines to suit your project path)`
+	`RailsEnv development`
+	`ServerName dev.socialbeam.com`
+	`DocumentRoot /home/user/Work/code/SocialbeamProject/socialbeam/public`
+	`</VirtualHost>`
+* Open `sudo vim /etc/hosts` and add **127.0.0.1   dev.socialbeam.com**
+* `sudo a2ensite dev.socialbeam.com`
+* `sudo service apache2 restart`
 
-Finally open dev.socialbeam.com , if everything ran fine till here then you should be able to see the Home Page of Socialbeam.
+> **Finally open dev.socialbeam.com , if everything ran fine till here then you should be able to see the Home Page of Socialbeam.**
       
 
-=== Step By Step Development Tutorials
+## Step By Step Development Tutorials
 1. [System Setup](http://raycoding.net/2012/10/17/creating-social-network-on-ruby-on-rails-day-1/)
 2. [Project Setup](http://raycoding.net/2012/10/26/creating-social-network-on-ruby-on-rails-day-2/)
 3. [Twitter Bootstrap and Styles](http://raycoding.net/2012/10/26/creating-social-network-on-ruby-on-rails-day-3-adding-navigations-and-stylesheets/)
 4. [User MVC](http://raycoding.net/2012/10/29/creating-social-network-on-ruby-on-rails-day-4-socialbeams-user-mvc/)
 5. [Navigations,jQuery,Bootstrap Part 2](http://raycoding.net/2012/10/30/creating-social-network-on-ruby-on-rails-day-5-navigationstwitter-bootstrap-stylesjquery-part-2/)
 6. [Dynamic Activity Wall with AJAX-jQuery](http://raycoding.net/2012/11/01/creating-social-network-on-ruby-on-rails-day-6-dynamic-facebook-like-wall-with-rails-ajax-jquery/)
-7. Setting up Apache2+Passenger+Rails](http://raycoding.net/2012/12/22/creating-social-network-on-ruby-on-rails-day-7-setting-up-rails-apache-with-passenger/)
+7. [Setting up Apache2+Passenger+Rails](http://raycoding.net/2012/12/22/creating-social-network-on-ruby-on-rails-day-7-setting-up-rails-apache-with-passenger/)
 8. [Source Control](http://raycoding.net/2012/12/22/creating-social-network-on-ruby-on-rails-day-8-source-control-on-git/)
 9. [User Profile Part 1](http://raycoding.net/2012/12/28/creating-social-network-on-ruby-on-rails-day-9-creating-user-profile-part-1/)
 10.[Messaging System in Socialbeam](http://raycoding.net/2013/01/05/creating-social-network-on-ruby-on-rails-day-10-creating-messaging-system-init/)
 
 
-=== Environment on Rails
-Console
-The console is a Ruby shell, which allows you to interact with your
+## Environment on Rails
+####Console
+> The console is a Ruby shell, which allows you to interact with your
 application's domain model. Here you'll have all parts of the application
 configured, just like it is when the application is running. You can inspect
 domain models, change values, and save to the database. Starting the script
@@ -156,116 +158,78 @@ To start the console, run 'rails console' from the Socialbeam's application
 directory.It often happens while your console is loaded you make changes to your MVC,so to reload your controllers and models after launching the console run
 reload!
 
-dbconsole
-You can go to the command line of your database directly through rails
+####dbconsole
+> You can go to the command line of your database directly through rails
 dbconsole. You would be connected to the database with the credentials
 defined in - Socialbeam's database.yml. Starting the script without arguments will connect you
 to the development database.
 
-Directory Architechture of SocialBeam App:
-
-  |-- app
-  |   |-- assets
-  |       |-- images
-  |       |-- javascripts
-  |       `-- stylesheets
-  |   |-- controllers
-  |   |-- helpers
-  |   |-- mailers
-  |   |-- models
-  |   `-- views
-  |       `-- layouts
-  |-- config
-  |   |-- environments
-  |   |-- initializers
-  |   `-- locales
-  |-- db
-  |-- doc
-  |-- lib
-  |   `-- tasks
-  |-- log
-  |-- public
-  |-- script
-  |-- test
-  |   |-- fixtures
-  |   |-- functional
-  |   |-- integration
-  |   |-- performance
-  |   `-- unit
-  |-- tmp
-  |   |-- cache
-  |   |-- pids
-  |   |-- sessions
-  |   `-- sockets
-  `-- vendor
-      |-- assets
-          `-- stylesheets
-      `-- plugins
+####Directory Architechture of SocialBeam App:
 
 app
-  Holds all the code that's specific to this particular application.
+> Holds all the code that's specific to this particular application.
 
 app/assets
-  Contains subdirectories for images, stylesheets, and JavaScript files.
+> Contains subdirectories for images, stylesheets, and JavaScript files.
 
 app/controllers
-  Holds controllers that should be named like weblogs_controller.rb for
+> Holds controllers that should be named like weblogs_controller.rb for
   automated URL mapping. All controllers should descend from
   ApplicationController which itself descends from ActionController::Base.
 
 app/models
-  Holds models that should be named like post.rb. Models descend from
+> Holds models that should be named like post.rb. Models descend from
   ActiveRecord::Base by default.
 
 app/views
-  Holds the template files for the view that should be named like
+> Holds the template files for the view that should be named like
   weblogs/index.html.erb for the WeblogsController#index action. All views use
   eRuby syntax by default.
 
 app/views/layouts
-  Holds the template files for layouts to be used with views. This models the
+> Holds the template files for layouts to be used with views. This models the
   common header/footer method of wrapping views. In your views, define a layout
   using the <tt>layout :default</tt> and create a file named default.html.erb.
   Inside default.html.erb, call <% yield %> to render the view using this
   layout.
 
 app/helpers
-  Holds view helpers that should be named like weblogs_helper.rb. These are
+> Holds view helpers that should be named like weblogs_helper.rb. These are
   generated for you automatically when using generators for controllers.
   Helpers can be used to wrap functionality for your views into methods.
 
 config
-  Configuration files for the Rails environment, the routing map, the database,
+> Configuration files for the Rails environment, the routing map, the database,
   and other dependencies.
 
 db
-  Contains the database schema in schema.rb. db/migrate contains all the
+> Contains the database schema in schema.rb. db/migrate contains all the
   sequence of Migrations for your schema.
 
 doc
-  This directory is where your application documentation will be stored when
+> This directory is where your application documentation will be stored when
   generated using <tt>rake doc:app</tt>
 
 lib
-  Application specific libraries. Basically, any kind of custom code that
+> Application specific libraries. Basically, any kind of custom code that
   doesn't belong under controllers, models, or helpers. This directory is in
   the load path.
 
 public
-  The directory available for the web server. Also contains the dispatchers and the
+> The directory available for the web server. Also contains the dispatchers and the
   default HTML files. This should be set as the DOCUMENT_ROOT of your web
   server.
 
 script
-  Helper scripts for automation and generation.
+> Helper scripts for automation and generation.
 
 test
-  Unit and functional tests along with fixtures. When using the rails generate
+> Unit and functional tests along with fixtures. When using the rails generate
   command, template test files will be generated for you and placed in this
   directory.
 
 vendor
-  External libraries that the application depends on. Also includes the plugins
+> External libraries that the application depends on. Also includes the plugins
   subdirectory. If the app has frozen rails, those gems also go here, under
   vendor/rails/. This directory is in the load path.
 
