@@ -23,11 +23,10 @@ No messages in your Inbox
 							<td><%= "#{message.sender.first_name} #{message.sender.last_name}" %></td>
 					        <td><%=h message.created_at.to_s(:long) %></td>
 						</tr>
-			<%= link_to "Sent", user_messages_path(@user, :mailbox => :sent)%>
 			<% end %>
 			</table>
 		<%= submit_tag "Delete selected" %> |
 		<% end %>
-<%= link_to "Compose New", new_user_message_path(@user)%> | 
-<%= link_to "Sent", user_messages_path(current_user, :mailbox => :sent)%>
+<%= link_to "Compose New Message", new_user_message_path(@user)%> | 
+<%= link_to "View Sent Messages", user_messages_path(current_user, :mailbox => :sent)%>
 <% end %>
