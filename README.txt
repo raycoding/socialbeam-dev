@@ -14,11 +14,11 @@ the primary set of features that a Social Network consists of. Written in simle 
 8. Digital Albums
 (this stack will increase in size definitely with time as Socialbeam percieves more features.
  
-==== You can also follow the [Socialbeam Development Tutorials](http://raycoding.net/category/ruby-on-rails/socialbeam-development-tutorial/)**
+==== You can also follow the Socialbeam Development Tutorials(http://raycoding.net/category/ruby-on-rails/socialbeam-development-tutorial/)**
 
 If you need guide starting up with Ruby on Rails 
-* [The Getting Started Guide][http://guides.rubyonrails.org/getting_started.html]
-* [Ruby on Rails Tutorial](http://www.railstutorial.org/)
+* http://guides.rubyonrails.org/getting_started.html
+* Ruby on Rails Tutorial](http://www.railstutorial.org/
 
 ==== Configuration
 Socialbeam is running on RVM with Ruby Enterprize Edition REE 1.8.7 and Rails 3.2.8,MySQL, Apache2 - Passenger Rails
@@ -27,7 +27,6 @@ I would suggest you to get your system setup from the instructions of system set
 === Guide to SetUp System and Run Socialbeam
 1. Make your project directory and clone the branch(master)
 2. Save the following code in a script file named setup_socialbeam.sh
-   * 
 		function install_jdk
 		{
 		    cd /usr/lib/jvm
@@ -110,30 +109,30 @@ I would suggest you to get your system setup from the instructions of system set
 		  passenger_rails
 		}
    
-   __(You can also get the Script from the codebase under directory setup/setup_socialbeam.sh)__
-   * Open terminal and run `source setup_socialbeam.sh`
-   * run `setup_stuffs`
-   * On installing Passenger Rails from the above steps you will be asked to add three lines to apache2.conf file, please add those three lines for proper configuration of Passenger Rails with Apache2. The lines will be something like these.
+   (You can also get the Script from the codebase under directory setup/setup_socialbeam.sh)
+3. Open terminal and run `source setup_socialbeam.sh`
+4. run `setup_stuffs`
+5. On installing Passenger Rails from the above steps you will be asked to add three lines to apache2.conf file, please add those three lines for proper configuration of Passenger Rails with Apache2. The lines will be something like these.
       **LoadModule passenger_module /home/username/.rvm/gems/ree-1.8.7-2012.02@rails3/gems/passenger-3.0.18/ext/apache2/mod_passenger.so**
       **PassengerRoot /home/username/.rvm/gems/ree-1.8.7-2012.02@rails3/gems/passenger-3.0.18**
       **PassengerRuby /home/username/.rvm/wrappers/ree-1.8.7-2012.02@rails3/ruby**
-   * Copy the three lines generated on your system into your /etc/apache2/apache2.conf
-   * `sudo a2enmod rewrite`
-   * Add the below lines to a new sites-available file `sudo vim /etc/apache2/sites-available/dev.socialbeam.com`
+      Copy the three lines generated on your system into your /etc/apache2/apache2.conf
+6. `sudo a2enmod rewrite`
+7. Add the below lines to a new sites-available file `sudo vim /etc/apache2/sites-available/dev.socialbeam.com`
      	<VirtualHost *:80>
 	(Change these lines to suit your project path)
 	RailsEnv development
 	ServerName dev.socialbeam.com
 	DocumentRoot /home/user/Work/code/SocialbeamProject/socialbeam/public
 	</VirtualHost>
-   * Open `sudo vim /etc/hosts` and add **127.0.0.1   dev.socialbeam.com**
-   * `sudo a2ensite dev.socialbeam.com`
-   * `sudo service apache2 restart`
+8. Open `sudo vim /etc/hosts` and add **127.0.0.1   dev.socialbeam.com**
+9. `sudo a2ensite dev.socialbeam.com`
+10. `sudo service apache2 restart`
 
 Finally open dev.socialbeam.com , if everything ran fine till here then you should be able to see the Home Page of Socialbeam.
       
 
-== Step By Step Development Tutorials
+=== Step By Step Development Tutorials
 1. [System Setup](http://raycoding.net/2012/10/17/creating-social-network-on-ruby-on-rails-day-1/)
 2. [Project Setup](http://raycoding.net/2012/10/26/creating-social-network-on-ruby-on-rails-day-2/)
 3. [Twitter Bootstrap and Styles](http://raycoding.net/2012/10/26/creating-social-network-on-ruby-on-rails-day-3-adding-navigations-and-stylesheets/)
@@ -146,10 +145,8 @@ Finally open dev.socialbeam.com , if everything ran fine till here then you shou
 10.[Messaging System in Socialbeam](http://raycoding.net/2013/01/05/creating-social-network-on-ruby-on-rails-day-10-creating-messaging-system-init/)
 
 
-==Environment on Rails
-
-####Console
-
+=== Environment on Rails
+Console
 The console is a Ruby shell, which allows you to interact with your
 application's domain model. Here you'll have all parts of the application
 configured, just like it is when the application is running. You can inspect
@@ -159,14 +156,13 @@ To start the console, run 'rails console' from the Socialbeam's application
 directory.It often happens while your console is loaded you make changes to your MVC,so to reload your controllers and models after launching the console run
 reload!
 
-####dbconsole
-
+dbconsole
 You can go to the command line of your database directly through rails
 dbconsole. You would be connected to the database with the credentials
 defined in - Socialbeam's database.yml. Starting the script without arguments will connect you
 to the development database.
 
-####Directory Architechture of SocialBeam App:
+Directory Architechture of SocialBeam App:
 
   |-- app
   |   |-- assets
