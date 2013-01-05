@@ -1,42 +1,154 @@
 == Social Network Development Project in Rails - SOCIALBEAM
 
-As you might already know Rails is a web-application framework that includes everything needed to create
-database-backed web applications according to the Model-View-Control pattern.So I chose RAILS for development of this project
-for the ease of creating a really good scalable WEB Application like Social Network. I am myself a beginner in Rails and you can
-catch me with detailed tutorials of SOCIALBEAM on my website www.raycoding.net You can follow the tutorials alongside the Source Code ==> http://raycoding.net/category/ruby-on-rails/socialbeam-development-tutorial/
+Socialbeam is a Open Source Development Project for building a Social Network. In its early stages of development phase Socialbeam aims to implement
+the primary set of features that a Social Network consists of. Written in simle lucid design styles and explained briefly the structure of the platform Socialbeam hopefully will implement most if not all social network features that we see around presently. As the 'Social' evolves with time so will this project Socialbeam.
 
-If you need guide starting up with RAILS you can always check 
-* The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
-* Ruby on Rails Tutorial Book: http://www.railstutorial.org/
+##Features implemented and will be implemented
+1. User Base (Beamers)
+2. Messaging System
+3. User Network and Aspects
+4. Activity Streams
+5. Groups and Pages
+6. Events
+7. Aspects Sharing
+8. Digital Albums
+(this stack will increase in size definitely with time as Socialbeam percieves more features.
+ 
+**You can also follow the [Socialbeam Development Tutorials](http://raycoding.net/category/ruby-on-rails/socialbeam-development-tutorial/)**
+If you need guide starting up with Ruby on Rails 
+* [The Getting Started Guide](http://guides.rubyonrails.org/getting_started.html)
+* [Ruby on Rails Tutorial](http://www.railstutorial.org/)
 
 
-== System Config - SOCIALBEAM
-I am running on RVM with Ruby Enterprize Edition REE 1.8.7 and Rails 3.2.8,MySQL, Apache2 - Passenger Rails
-to follow the project. I would suggest you to get your system setup with the following configurations. You can find many Official Guide to get your System set up with these requirement.
+== Configuration
+Socialbeam is running on RVM with Ruby Enterprize Edition REE 1.8.7 and Rails 3.2.8,MySQL, Apache2 - Passenger Rails
+I would suggest you to get your system setup from the instructions of system setup below.
 
+== Gudie to SetUp System and Run Socialbeam
+1. Make your project directory and clone the branch(master)
+2. Save the following code in a script file named setup_socialbeam.sh
+   * 
+		function install_jdk
+		{
+		    cd /usr/lib/jvm
+			sudo wget http://bab-backup.s3.amazonaws.com/jdk-6u29-linux-i586.bin
+			sudo chmod +x jdk-6u29-linux-i586.bin
+		    sudo ./jdk-6u29-linux-i586.bin
+		  
+		    #  After the installation is done
+		    #  Put this in your /etc/bash.bashrc
+		    #  export JAVA_HOME=/usr/lib/jvm/jdk1.6.0_29
+		    # export JRE_HOME=/usr/lib/jvm/jdk1.6.0_29/jre
+		  
+		}
+		  
+		function apt_get_stuff
+		{
+		    #dev tools
+		    sudo apt-get install build-essential bison openssl libreadline5 libreadline-dev curl git zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev
+		    # imagemagick
+		    sudo apt-get install imagemagick
+		    #memcache
+		    sudo apt-get install memcached
+		    #Java
+		    sudo add-apt-repository "deb http://archive.canonical.com/  lucid partner"
+		    sudo apt-get update
+		    install_jdk  
+		    #git and svn
+		    sudo aptitude install git-core subversion
+		}
+		  
+		function install_rvm_ree
+		{
+		    echo "installing rvm"
+		    \curl -L https://get.rvm.io | bash -s stable
+		    rvm install ree
+		    rvm --default use ree
+		}
+		  
+		  
+		function rails_setup
+		{
+		    rvm gemset create rails3
+		    rvm use ree-1.8.7@rails3 
+		    #please note at time of installing the version of rvm was 1.8.7,please make changes if needed
+		    gem install rails -v=3.2.8
+		    rvm use ree-1.8.7@rails3 --default
+		    
+		}
+		  
+		  
+		function mysql_setup
+		{
+		    sudo apt-get install libmysqlclient-dev 
+		    gem install mysql
+		    sudo apt-get install mysql-server-5.1
+		}
+		  
+		  
+		function apache_setup
+		{
+		    sudo apt-get install apache2 apache2-mpm-prefork apache2-prefork-dev
+		}
 
-== Getting Started
-The Project is at it's initial development stage.
-With time I will try and prepare a documentation and wiki pages too for the same. 
-Socialbeam like any other Social Network like Facebook ,Twitter would first aim to 
-implement the basic features of a Social Network with User(Beamers) connected to each 
-other with social shares and streams. 
+		function passenger_rails
+		{
+		   gem install passenger
+		   passenger-install-apache2-module
+		    
+		}
+
+		  
+		  
+		function setup_stuffs
+		{
+		  apt_get_stuff
+		  install_rvm_ree
+		  rails_setup
+		  mysql_setup
+		  apache_setup
+		  passenger_rails
+		}
+   
+   __(You can also get the Script from the codebase under directory setup/setup_socialbeam.sh)__
+   * Open terminal and run `source setup_socialbeam.sh`
+   * run `setup_stuffs`
+   * On installing Passenger Rails from the above steps you will be asked to add three lines to apache2.conf file, please add those three lines for proper configuration of Passenger Rails with Apache2. The lines will be something like these.
+      **LoadModule passenger_module /home/username/.rvm/gems/ree-1.8.7-2012.02@rails3/gems/passenger-3.0.18/ext/apache2/mod_passenger.so**
+      **PassengerRoot /home/username/.rvm/gems/ree-1.8.7-2012.02@rails3/gems/passenger-3.0.18**
+      **PassengerRuby /home/username/.rvm/wrappers/ree-1.8.7-2012.02@rails3/ruby**
+   * Copy the three lines generated on your system into your /etc/apache2/apache2.conf
+   * `sudo a2enmod rewrite`
+   * Add the below lines to a new sites-available file `sudo vim /etc/apache2/sites-available/dev.socialbeam.com`
+     	<VirtualHost *:80>
+	(Change these lines to suit your project path)
+	RailsEnv development
+	ServerName dev.socialbeam.com
+	DocumentRoot /home/user/Work/code/SocialbeamProject/socialbeam/public
+	</VirtualHost>
+   * Open `sudo vim /etc/hosts` and add **127.0.0.1   dev.socialbeam.com**
+   * `sudo a2ensite dev.socialbeam.com`
+   * `sudo service apache2 restart`
+
+Finally open dev.socialbeam.com , if everything ran fine till here then you should be able to see the Home Page of Socialbeam.
+      
 
 == Step By Step Development Tutorials
-1. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 1 – SYSTEM SETUP [http://raycoding.net/2012/10/17/creating-social-network-on-ruby-on-rails-day-1/]
-2. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 2 – PROJECT SETUP [http://raycoding.net/2012/10/26/creating-social-network-on-ruby-on-rails-day-2/]
-3. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 3 – BASE NAVIGATIONS & TWITTER BOOTSTRAP STYLES [http://raycoding.net/2012/10/26/creating-social-network-on-ruby-on-rails-day-3-adding-navigations-and-stylesheets/]
-4. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 4 – SOCIALBEAM’S USER MVC [http://raycoding.net/2012/10/29/creating-social-network-on-ruby-on-rails-day-4-socialbeams-user-mvc/]
-5. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 5 – NAVIGATIONS,TWITTER BOOTSTRAP STYLES,JQUERY PART 2 [http://raycoding.net/2012/10/30/creating-social-network-on-ruby-on-rails-day-5-navigationstwitter-bootstrap-stylesjquery-part-2/]
-6. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 6 – DYNAMIC FACEBOOK LIKE WALL WITH RAILS-AJAX-JQUERY [http://raycoding.net/2012/11/01/creating-social-network-on-ruby-on-rails-day-6-dynamic-facebook-like-wall-with-rails-ajax-jquery/]
-7. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 7 – SETTING UP RAILS + APACHE WITH PASSENGER [http://raycoding.net/2012/12/22/creating-social-network-on-ruby-on-rails-day-7-setting-up-rails-apache-with-passenger/]
-8. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 8 – SOURCE CONTROL ON GIT [http://raycoding.net/2012/12/22/creating-social-network-on-ruby-on-rails-day-8-source-control-on-git/]
-9. CREATING SOCIAL NETWORK ON RUBY ON RAILS – DAY 9 – CREATING USER PROFILE PART 1 [http://raycoding.net/2012/12/28/creating-social-network-on-ruby-on-rails-day-9-creating-user-profile-part-1/]
+1. [System Setup](http://raycoding.net/2012/10/17/creating-social-network-on-ruby-on-rails-day-1/)
+2. [Project Setup](http://raycoding.net/2012/10/26/creating-social-network-on-ruby-on-rails-day-2/)
+3. [Twitter Bootstrap and Styles](http://raycoding.net/2012/10/26/creating-social-network-on-ruby-on-rails-day-3-adding-navigations-and-stylesheets/)
+4. [User MVC](http://raycoding.net/2012/10/29/creating-social-network-on-ruby-on-rails-day-4-socialbeams-user-mvc/)
+5. [Navigations,jQuery,Bootstrap Part 2](http://raycoding.net/2012/10/30/creating-social-network-on-ruby-on-rails-day-5-navigationstwitter-bootstrap-stylesjquery-part-2/)
+6. [Dynamic Activity Wall with AJAX-jQuery](http://raycoding.net/2012/11/01/creating-social-network-on-ruby-on-rails-day-6-dynamic-facebook-like-wall-with-rails-ajax-jquery/)
+7. Setting up Apache2+Passenger+Rails](http://raycoding.net/2012/12/22/creating-social-network-on-ruby-on-rails-day-7-setting-up-rails-apache-with-passenger/)
+8. [Source Control](http://raycoding.net/2012/12/22/creating-social-network-on-ruby-on-rails-day-8-source-control-on-git/)
+9. [User Profile Part 1](http://raycoding.net/2012/12/28/creating-social-network-on-ruby-on-rails-day-9-creating-user-profile-part-1/)
+10.[Messaging System in Socialbeam](http://raycoding.net/2013/01/05/creating-social-network-on-ruby-on-rails-day-10-creating-messaging-system-init/)
 
 
-Development Environment on Rails
+==Environment on Rails
 
-== Console
+####Console
 
 The console is a Ruby shell, which allows you to interact with your
 application's domain model. Here you'll have all parts of the application
@@ -47,14 +159,14 @@ To start the console, run 'rails console' from the Socialbeam's application
 directory.It often happens while your console is loaded you make changes to your MVC,so to reload your controllers and models after launching the console run
 reload!
 
-== dbconsole
+####dbconsole
 
 You can go to the command line of your database directly through rails
 dbconsole. You would be connected to the database with the credentials
 defined in - Socialbeam's database.yml. Starting the script without arguments will connect you
 to the development database.
 
-== Directory Architechture of SocialBeam App:
+####Directory Architechture of SocialBeam App:
 
   |-- app
   |   |-- assets
@@ -161,6 +273,4 @@ vendor
   subdirectory. If the app has frozen rails, those gems also go here, under
   vendor/rails/. This directory is in the load path.
 
-
-
-Follow the tutorial on www.raycoding.net for more details.
+**Tutorial on www.raycoding.net for more details.**
