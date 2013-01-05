@@ -10,7 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228200815) do
+ActiveRecord::Schema.define(:version => 20130105160816) do
+
+  create_table "messages", :force => true do |t|
+    t.string   "sender_id",                              :null => false
+    t.string   "recepient_id"
+    t.boolean  "sender_deleted",    :default => false
+    t.boolean  "recepient_deleted", :default => false
+    t.string   "subject",                                :null => false
+    t.text     "body"
+    t.datetime "read_at"
+    t.string   "container",         :default => "draft"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
 
   create_table "scribbles", :force => true do |t|
     t.string   "post"
@@ -32,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20121228200815) do
     t.datetime "updated_at",                          :null => false
     t.string   "profile_name",  :default => "beamer"
     t.string   "profile_id",                          :null => false
+    t.string   "beamer_id",                           :null => false
   end
 
 end

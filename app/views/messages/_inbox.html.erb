@@ -1,0 +1,33 @@
+<h2>Your Inbox</h2>
+<% if @messages.size == 0 %>
+No messages in your Inbox
+<% else %>
+		<%= form_tag delete_multiple_user_messages_path, :method=>:post do %>
+			<table  class="table table-bordered">
+			        <tr>
+					<th>Delete?</th>
+					<th>Sent</th>
+					<th>Sender</th>
+					<th>Sent</th>
+				</tr>
+					<% for message in @messages %>
+						<tr>
+							<td><%= check_box_tag "delete[]", message.id %></td>
+							<td>
+								<% if message.read? %>
+								  <%= link_to h(message.subject), user_message_path(@user, message) %>
+								<% else %>
+								  <%= link_to "#{h(message.subject)} (unread)", user_message_path(@user, message) %>
+								<% end %>
+							</td>
+							<td><%= "#{message.sender.first_name} #{message.sender.last_name}" %></td>
+					        <td><%=h message.created_at.to_s(:long) %></td>
+						</tr>
+			<%= link_to "Sent", user_messages_path(@user, :mailbox => :sent)%>
+			<% end %>
+			</table>
+		<%= submit_tag "Delete selected" %> |
+		<% end %>
+<%= link_to "Compose New", new_user_message_path(@user)%> | 
+<%= link_to "Sent", user_messages_path(current_user, :mailbox => :sent)%>
+<% end %>

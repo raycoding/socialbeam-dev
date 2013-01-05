@@ -1,0 +1,7 @@
+	<% if params[:mailbox] == "sent" %>
+			<%= render :partial => "sent" %>
+	<% elsif params[:mailbox] == "inbox" %>
+			<%= render :partial => "inbox" %>
+	<% elsif params[:mailbox] == "archieved" %>
+	        <%= render :partial => "inbox" %>
+	<% end %>
