@@ -3,7 +3,7 @@
 Socialbeam is a Open Source Development Project for building a Social Network. In its early stages of development phase Socialbeam aims to implement
 the primary set of features that a Social Network consists of. Written in simle lucid design styles and explained briefly the structure of the platform Socialbeam hopefully will implement most if not all social network features that we see around presently. As the 'Social' evolves with time so will this project Socialbeam.
 
-##Features implemented and will be implemented
+=== Features implemented and will be implemented
 1. User Base (Beamers)
 2. Messaging System
 3. User Network and Aspects
@@ -14,17 +14,17 @@ the primary set of features that a Social Network consists of. Written in simle 
 8. Digital Albums
 (this stack will increase in size definitely with time as Socialbeam percieves more features.
  
-**You can also follow the [Socialbeam Development Tutorials](http://raycoding.net/category/ruby-on-rails/socialbeam-development-tutorial/)**
+==== You can also follow the [Socialbeam Development Tutorials](http://raycoding.net/category/ruby-on-rails/socialbeam-development-tutorial/)**
+
 If you need guide starting up with Ruby on Rails 
-* [The Getting Started Guide](http://guides.rubyonrails.org/getting_started.html)
+* [The Getting Started Guide][http://guides.rubyonrails.org/getting_started.html]
 * [Ruby on Rails Tutorial](http://www.railstutorial.org/)
 
-
-== Configuration
+==== Configuration
 Socialbeam is running on RVM with Ruby Enterprize Edition REE 1.8.7 and Rails 3.2.8,MySQL, Apache2 - Passenger Rails
 I would suggest you to get your system setup from the instructions of system setup below.
 
-== Gudie to SetUp System and Run Socialbeam
+=== Guide to SetUp System and Run Socialbeam
 1. Make your project directory and clone the branch(master)
 2. Save the following code in a script file named setup_socialbeam.sh
    * 
