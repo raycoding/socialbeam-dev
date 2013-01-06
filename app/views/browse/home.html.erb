@@ -1,47 +1,54 @@
 <% if current_user %>
-<% @scribble = Scribble.new %>
-<%=render :partial => 'scribbles/newscribble.html.erb'%>
-<div id="scribblesfeed">
-<%= render :partial => 'scribbles.html.erb', :locals => { :scribbles_streams => @scribbles_streams } %>
-</div></br>
 
+<div class="row-fluid">
+  <div class="span8">
+    <% @scribble = Scribble.new %>
+    <%=render :partial => 'scribbles/newscribble'%>
+    <div id="scribblesfeed">
+      <%= render :partial => 'scribbles/scribbles.html.erb', :locals => { :scribbles_streams => @scribbles_streams } %>
+    </div>
+  </div>
+  <div class="span4 newsfeed">
+    <%= render :partial => 'newsfeeds/shownewsfeeds', :locals => { :newsfeeds_streams => @newsfeeds_streams } %>
+  </div>
+</div>
 <% end %>
 <script>
-  $(document).ready(function(){
+$(document).ready(function(){
   var timelyrefreshScribbleFeeds = function(){
-  url = '/refresh'
-  $.get(url,function(data,status){
-   $('#scribblesfeed').html(data)
-   return false
+    url = '/refresh'
+    $.get(url,function(data,status){
+     $('#scribblesfeed').html(data)
+     return false
    });
   };
   setInterval(timelyrefreshScribbleFeeds,60000);
 
-   $(".votes").click(function()
+  $(".votes").click(function()
   {
-     var id = $(this).attr("id");
-     var name = $(this).attr("name");
-    var parent = $(this)
-          if (name=='up')
-         {
-              
+   var id = $(this).attr("id");
+   var name = $(this).attr("name");
+   var parent = $(this)
+   if (name=='up')
+   {
 
-              $.get('/votedup', {id: id},
-                   function(data,status){
-                   parent.html(data);
-                                          });
-         }
-         else
-        {
-             $.get('/voteddown', {id: id},
-                   function(data,status){
-                   parent.html(data);
-                                          });
-        }
-   return false;
-  });
 
-  });
+    $.get('/votedup', {id: id},
+     function(data,status){
+       parent.html(data);
+     });
+  }
+  else
+  {
+   $.get('/voteddown', {id: id},
+     function(data,status){
+       parent.html(data);
+     });
+ }
+ return false;
+});
+
+});
 
 
 </script>

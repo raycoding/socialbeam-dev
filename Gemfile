@@ -20,3 +20,6 @@ gem 'jquery-rails'
 # To use ActiveModel has_secure_password
 gem "bcrypt-ruby", :require => "bcrypt"
 
+#Paginations
+gem 'will_paginate', '~> 3.0'
+

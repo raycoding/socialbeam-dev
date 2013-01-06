@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130105160816) do
+ActiveRecord::Schema.define(:version => 20130106211950) do
 
   create_table "messages", :force => true do |t|
     t.string   "sender_id",                              :null => false
@@ -23,6 +23,24 @@ ActiveRecord::Schema.define(:version => 20130105160816) do
     t.string   "container",         :default => "draft"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+  end
+
+  create_table "newsfeeds", :force => true do |t|
+    t.string   "verb"
+    t.string   "activity"
+    t.string   "actor_id"
+    t.string   "actor_type"
+    t.string   "actor_name_method"
+    t.string   "indirect_actor_id"
+    t.string   "indirect_actor_type"
+    t.string   "indirect_actor_name_method"
+    t.integer  "count",                      :default => 1
+    t.string   "object_id"
+    t.string   "object_type"
+    t.string   "object_name_method"
+    t.integer  "privacystatus",              :default => 0
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   create_table "scribbles", :force => true do |t|

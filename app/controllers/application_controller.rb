@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
- include ApplicationHelper 
+ include ApplicationHelper
+ include NewsfeedsStreamsData
   helper :all # include all helpers, all the time
   protect_from_forgery
   helper_method :current_user

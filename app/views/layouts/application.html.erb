@@ -61,17 +61,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Socialbeam</a>
+          <a class="brand" href="<%= root_url %>">Socialbeam</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="<%= root_url %>"><i class="icon-home"></i>Home</a></li>
               <li class="divider-vertical"></li>
-              <li><a href="#">Profile</a></li>
+              <li><a href="#"><i class="icon-user"></i>Profile</a></li>
               <li class="divider-vertical"></li>
-              <li><a href="#">My Connections</a></li>
+              <li><a href="#"><i class="icon-book"></i>My Connections</a></li>
               <li class="divider-vertical"></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Messaging<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-folder-close"></i>Messaging<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                  <li class="nav-header">Private</li>
                  <li><%= link_to "Compose New", new_user_message_path(current_user)%></li>
@@ -91,10 +91,8 @@
             <input type="text" class="search-query span2" placeholder="Search">
           </form>
           <ul class="nav pull-right">
-            <li><a href="#">Link</a></li>
-            <li class="divider-vertical"></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-briefcase"></i>Account<b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">Security</a></li>
@@ -110,78 +108,60 @@
   </div><!-- /navbar -->
   <% else %>
   <div class="navbar navbar-fixed-top">
-   <div class="navbar-inner">
-    <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <a class="brand" href="#">Socialbeam</a>
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">Socialbeam</a>
 
-      <div class="nav-collapse">
+        <div class="nav-collapse">
 
-        <ul class="nav pull-right">
-          <li><button class="btn" id="loginclick">Sign In</button></li>
-          <li class="divider-vertical"></li>
-          <li><button class="btn" id="signupclick">Join Socialbeam</button></li>
-          <li class="divider-vertical"></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Why Join Socialbeam?<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-             <li><a href="#">Connect</a></li>
-             <li><a href="#">Collaborate</a></li>
-             <li><a href="#">Empower</a></li>
-             <li class="divider"></li>
-             <li><a href="#">Take A Tour!</a></li>
-           </ul>
-         </li>
-       </ul>
-     </div><!-- /.nav-collapse -->
-                    </div><!-- container>
-                  </div><!-- /navbar-inner -->
-                </div><!-- /navbar -->
-
-                <% end %>
-
-                <% if current_user %>
-                <div class="container" style="margin-top:50px;">
-                  <div class="row">
-                   <div class="span3">
-                    <div class="well sidebar-nav">
-                      <ul class="nav nav-list">
-                        <li class="nav-header">Beamer</li>
-                        <li><%= link_to "My Badges", ""  %></li>
-                        <li><%= link_to "Connections", ""  %></li>
-                        <li><%= link_to "Messaging", ""  %></li>
-                        <li><%= link_to "Groups", ""  %></li>
-                      </ul>
-                    </div><!--/.well -->
-                  </div><!--/span-->
-                  <div class="span9">
-                   <%= yield %>
-                 </div>
-               </div><!--/row-->
-
-               <footer>
-                <p>&copy; Socialbeam 2012</p>
-              </footer>
-            </div> <!-- /container -->
-            <% else %>
-            <div class="container" style="margin-top:50px;">
-             <%= yield %>
-             <footer>
-              <p>&copy; Socialbeam 2012</p>
-            </footer>
-          </div> <!-- /container -->
-          <% end %>
-        </body>
-        <script>
-        $('#loginclick').click(function(){
-          $('#login').modal('show')
-        });
-        $('#signupclick').click(function(){
-          $('#signup').modal('show')
-        });
-        </script>
-        </html>
+          <ul class="nav pull-right">
+            <li><button class="btn" id="loginclick">Sign In</button></li>
+            <li class="divider-vertical"></li>
+            <li><button class="btn" id="signupclick">Join Socialbeam</button></li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Why Join Socialbeam?<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+               <li><a href="#">Connect</a></li>
+               <li><a href="#">Collaborate</a></li>
+               <li><a href="#">Empower</a></li>
+               <li class="divider"></li>
+               <li><a href="#">Take A Tour!</a></li>
+             </ul>
+           </li>
+         </ul>
+       </div><!-- /.nav-collapse -->
+     </div><!-- container> -->
+   </div><!-- /navbar-inner -->
+ </div><!-- /navbar -->
+ <% end %>
+ <% if current_user %>
+ <div class="container" style="margin-top:50px;">
+  <%= yield %>
+  <footer>
+    <p>&copy; Socialbeam 2012</p>
+  </footer>
+</div> <!-- /container -->
+<% else %>
+<div class="container" style="margin-top:50px;">
+  <%= yield %>
+  <footer>
+    <p>&copy; Socialbeam 2012</p>
+  </footer>
+</div> <!-- /container -->
+<% end %>
+</body>
+<script>
+$('#loginclick').click(function(){
+  $('#login').modal('show')
+});
+$('#signupclick').click(function(){
+  $('#signup').modal('show')
+});
+</script>
+</html>

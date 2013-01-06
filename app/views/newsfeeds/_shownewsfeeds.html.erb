@@ -1,0 +1,15 @@
+<div class="page-header" style="margin:5px;">
+  <h3>Streaming Feeds</h3>
+</div><% if newsfeeds_streams.size==0 %>
+<p>No newsfeed to show</p>
+<%else %>
+	<% newsfeeds_streams.each do |stream| %>
+	<div class="newsfeedrow">
+   <%= "#{stream.actor_name_method} #{stream.verb} #{stream.indirect_actor_name_method} #{stream.object_name_method}" %>
+	</div>
+	<% end %>
+<div class="sb_pagination">
+	<%= will_paginate newsfeeds_streams,:container => false %>
+</div>
+<%end %>
+</br>

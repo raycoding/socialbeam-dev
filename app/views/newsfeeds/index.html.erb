@@ -1,0 +1,17 @@
+<% if @newsfeeds_streams.size==0 %>
+<p>No newsfeed to show</p>
+<%else %>
+<table class="table table-striped">
+	<% @newsfeeds_streams.each do |stream| %>
+	<tr>
+		<td><%=h stream.actor_name_method %></td>
+		<td><%=h stream.verb %></td>
+		<td><%=h stream.object_name_method %></td>
+	</tr>
+	<% end %>
+</table>
+<div class="sb_pagination">
+	<%= will_paginate @newsfeeds_streams,:container => false %>
+</div>
+<%end %>
+</br>
