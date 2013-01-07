@@ -7,6 +7,11 @@
     <div id="scribblesfeed">
       <%= render :partial => 'scribbles/scribbles.html.erb', :locals => { :scribbles_streams => @scribbles_streams } %>
     </div>
+    <p>
+    <div id="loading" class="progress progress-striped active">
+      <div class="bar" style="width:100%;">Loading more...</div>
+    </div>
+    </p>
   </div>
   <div class="span4 newsfeed">
     <%= render :partial => 'newsfeeds/shownewsfeeds', :locals => { :newsfeeds_streams => @newsfeeds_streams } %>
@@ -14,6 +19,7 @@
 </div>
 <% end %>
 <script>
+var currentPage = 1;
 $(document).ready(function(){
   var timelyrefreshScribbleFeeds = function(){
     url = '/refresh'
@@ -48,7 +54,38 @@ $(document).ready(function(){
  return false;
 });
 
+  var checkScroll= function() {
+    if (currentPage <= <%= @scribbles_streams.total_pages %>)
+    {
+      if (nearBottomOfPage()) {
+        currentPage++;
+        $.get('/socialbeams/loadmorescribbles',{page:currentPage},
+         function(data,status){
+          $('#scribblesfeed').append(data)
+          return false
+        });
+      } else {
+        setTimeout(checkScroll, 1000);
+      }
+    }else{
+      $('#loading').hide()
+    }
+
+  };
+
+  function nearBottomOfPage() {
+    return scrollDistanceFromBottom() < 150;
+  }
+
+  function scrollDistanceFromBottom(argument) {
+    return pageHeight() - (window.pageYOffset + self.innerHeight);
+  }
+
+  function pageHeight() {
+    return Math.max(document.body.scrollHeight, document.body.offsetHeight);
+  }
+
+  setInterval(checkScroll,1000);
+
 });
-
-
 </script>

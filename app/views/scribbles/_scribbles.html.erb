@@ -3,7 +3,7 @@
 <% else %>
 <% scribbles_streams.each do |scribble| %>
 <div class="scribblebody"> 
-  <div class="scribbleimg"><img src="assets/default_avatar.png" style='width:50px;height:50px'/></div>
+  <div class="scribbleimg"><%=image_tag 'default_avatar.png' %></div>
   <div class="scribbletext">
     <blockquote>
       <p><%= scribble.post %></p>
@@ -21,5 +21,8 @@
   
 </div>
 <% end %>
+<!-- <div class="sb_pagination">
+  <%#= will_paginate scribbles_streams,:container => false %>
+</div> -->
 <% end %>
 

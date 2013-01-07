@@ -8,12 +8,18 @@ Socialbeam::Application.routes.draw do
       end
     end
   end
-    resources :sessions
-    resources :newsfeeds
-    root :to => 'browse#home'
-    get  "refresh"  => "browse#refreshscribbles", :as => "refresh"
-    get "votedup"  => "browse#votedup", :as => "votedup"
-    get  "voteddown"  => "browse#voteddown", :as => "voteddown"
+  resource :socialbeams do
+    collection do
+        get 'home'
+        get 'loadmorescribbles'
+      end
+  end
+  resources :sessions
+  resources :newsfeeds
+  root :to => 'socialbeams#home'
+  get  "refresh"  => "socialbeams#refreshscribbles", :as => "refresh"
+  get "votedup"  => "socialbeams#votedup", :as => "votedup"
+  get  "voteddown"  => "socialbeams#voteddown", :as => "voteddown"
 
   #Sessions Users
   get "logout_user" => "sessions#destroy", :as => "logout_user"
