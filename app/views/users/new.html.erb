@@ -1,0 +1,11 @@
+<div class="signup-container">
+<%= form_for(@user,:html => { :class => "form-signin",:role=>"form"}) do |f| %>
+    <%= f.text_field :email,:placeholder=>"email",:type=>"email",:class=>'form-control'%> 
+    <%= f.text_field :login,:placeholder=>"login identifier",:class=>'form-control'%>
+    <%= f.password_field :password,:placeholder=>"password",:class=>'form-control' %>
+    <%= f.password_field :password_confirmation,:placeholder=>"re-enter password",:class=>'form-control' %>
+    <p>
+      <%= f.submit "Sign Up",:class=>'btn btn-lg btn-primary btn-block' %>
+    </p>
+<% end %>
+</div>

@@ -10,7 +10,17 @@ group :assets do
 end
 gem 'jquery-rails','~>3.1.0'
 gem 'jquery-ui-rails','~>4.0.5'
-gem 'bcrypt-ruby','~>3.0.1'
+gem 'will_paginate','~>3.0.5'
+gem 'colored','~>1.2'
+gem 'uuidtools','~>2.1.4'
+gem 'paperclip','~>4.1.1'
+gem 'nokogiri','~>1.5.11'
+gem 'rmagick', '2.13.2'
+gem 'acts_as_list','~>0.4.0'
+#ActiveModels has_secure_password
+gem "bcrypt-ruby", '~>3.0.1',:require => "bcrypt"
+#Authentication Framework
+gem 'authlogic','~>3.2.0'
 group :development do
 	gem 'hirb','~>0.7.1'
 	gem 'interactive_editor','~>0.0.10'

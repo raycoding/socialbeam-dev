@@ -1,0 +1,8 @@
+<div class="login-container">
+<%= form_for(@user_session,:html => { :class => "form-signin"}) do |f| %>
+		<h2 class="form-signin-heading">Please sign in</h2>
+	  <%= f.text_field :email,:placeholder=>"Email" ,:class=>'form-control' %>
+	  <%= f.password_field :password,:placeholder=>"Password",:class=>'form-control' %>
+    <%= f.submit "Sign In",:class=>'btn btn-lg btn-primary btn-block' %> 
+<% end %>
+</div>
