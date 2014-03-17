@@ -1,3 +1,0 @@
-Yet Another Social Network on Ruby on Rails.
-
-Under Development! Stay tuned.
